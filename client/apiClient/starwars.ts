@@ -1,11 +1,16 @@
 //API requests
 
 import request from 'superagent'
-import { Starwars } from '../../models/Starwars.ts'
 
-const serverURL = 'https://swapi.dev/api/people/5/'
+const personURL = 'https://swapi.dev/api/people/5'
+const planetURL = 'https://swapi.dev/api/planets/2/'
 
-export async function getStarWarsApi() {
-  const response = await request.get(serverURL)
+export async function getStarWarsPersonApi() {
+  const response = await request.get(personURL)
+  return response.body
+}
+
+export async function getStarWarsPlanetApi() {
+  const response = await request.get(planetURL)
   return response.body
 }

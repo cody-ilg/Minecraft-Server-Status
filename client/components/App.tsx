@@ -17,7 +17,6 @@ function App() {
 
   return (
     <>
-      <h1>StarWars</h1>
       <Starwars />
     </>
   )

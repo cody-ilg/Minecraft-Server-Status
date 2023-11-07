@@ -1,16 +1,22 @@
-//Components
+//Component
 import { useEffect, useState } from 'react'
 
-import { getStarWarsApi } from '../apiClient/starwars.ts'
+import {
+  getStarWarsPersonApi,
+  getStarWarsPlanetApi,
+} from '../apiClient/starwars.ts'
+
 import type { Starwars } from '../../models/Starwars.ts'
 
 export default function Starwars() {
-  const [starWars, setStarWars] = useState<Starwars | null>()
-
+  const [starWarsPerson, setStarWarsPerson] = useState<Starwars | null>()
+  const [starWarsPlanet, setStarWarsPlanet] = useState<Starwars | null>()
   useEffect(() => {
     async function fetchStarWars() {
-      const starWarsData = await getStarWarsApi()
-      setStarWars(starWarsData)
+      const starWarsPersonData = await getStarWarsPersonApi()
+      const starWarsPlanetData = await getStarWarsPlanetApi()
+      setStarWarsPerson(starWarsPersonData)
+      setStarWarsPlanet(starWarsPlanetData)
     }
     try {
       fetchStarWars()
@@ -21,8 +27,9 @@ export default function Starwars() {
 
   return (
     <>
-      <h2>StarWars</h2>
-      <pre>{JSON.stringify(starWars, null, 2)}</pre>
+      <h1>Star Wars Characters</h1>
+      <h4>Name: {starWarsPerson?.name}</h4>
+      <h4>Home world: {starWarsPlanet?.name}</h4>
     </>
   )
 }
