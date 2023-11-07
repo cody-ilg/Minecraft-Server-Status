@@ -2,21 +2,27 @@ import { useState, useEffect } from 'react'
 import { getImage } from '../apiClient.ts'
 
 function Image() {
-  const [image, setImage] = useState(
-    'https://media.tenor.com/UGJPIFeOmGkAAAAd/sniff-cat.gif'
-  )
+  const placeholder = {
+    url: '',
+    alt: '',
+  }
 
-  // useEffect(() => {
-  //   getImage()
-  //     .then((res) => {
-  //       setImage(res.body)
-  //     })
-  //     .catch((err) => {
-  //       console.error(err.message)
-  //     })
-  // })
+  const [image, setImage] = useState(placeholder)
 
-  return <img src={image} />
+  useEffect(() => {
+    async function fetchImage() {
+      const image = await getImage()
+      const data = {
+        url: image.media_formats.gif.url,
+        alt: image.content_description,
+      }
+      console.log(image, data)
+      setImage(data)
+    }
+    fetchImage()
+  }, [])
+
+  return <img src={image?.url} alt={image?.alt} />
 }
 
 export default Image
