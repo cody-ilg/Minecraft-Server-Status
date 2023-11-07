@@ -1,5 +1,5 @@
 import express from 'express'
-import { Welcome } from '../../models/welcome.ts'
+import { Welcome } from '../../models/Starwars.ts'
 
 const router = express.Router()
 

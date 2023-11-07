@@ -1,21 +1,26 @@
+//App
 import { useState, useEffect } from 'react'
-
-import { getWelcome } from '../apiClient.ts'
+import Starwars from './Starwars.tsx'
 
 function App() {
-  const [welcomeStatement, setWelcomeStatement] = useState('')
+  // const [welcomeStatement, setWelcomeStatement] = useState('')
 
-  useEffect(() => {
-    getWelcome()
-      .then((res) => {
-        setWelcomeStatement(res.statement)
-      })
-      .catch((err) => {
-        console.error(err.message)
-      })
-  })
+  // useEffect(() => {
+  //   getWelcome()
+  //     .then((res) => {
+  //       setWelcomeStatement(res.statement)
+  //     })
+  //     .catch((err) => {
+  //       console.error(err.message)
+  //     })
+  // })
 
-  return <h1>{welcomeStatement}</h1>
+  return (
+    <>
+      <h1>StarWars</h1>
+      <Starwars />
+    </>
+  )
 }
 
 export default App
