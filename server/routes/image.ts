@@ -7,26 +7,28 @@ const router = express.Router()
 router.get('/', async (req, res) => {
   try {
     const queries = [
-      'Javascript',
-      'Programmer Mad',
-      'Minecraft',
-      'Breaking Bad',
-      'Better Call Saul',
+      'Javascript Typescript',
+      'Programmer Coding Hacking Meme',
+      'Visual Studio Code',
+      'Computer Programmer Mad Bug',
     ]
-    const query = queries[Math.floor(Math.random() * queries.length)]
+
+    let query = queries[Math.floor(Math.random() * queries.length)]
+
+    if (req.query.query) query = req.query.query
 
     const url =
       'https://tenor.googleapis.com/v2/search?q=' +
       query +
       '&key=' +
       process.env.TENOR_KEY +
-      '&client_key=api_test_site&limit=10&random=true'
+      '&client_key=api_test_site&random=true'
 
     const response = await request.get(url)
 
     // Extract the gif
     const gif = response.body.results[0]
-    console.log(gif)
+    // console.log(gif)
 
     res.json(gif)
   } catch (err) {
