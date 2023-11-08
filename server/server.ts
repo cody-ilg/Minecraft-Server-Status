@@ -13,14 +13,15 @@ const server = express()
 server.use(express.json())
 server.use(express.static(join(__dirname, './public')))
 
-server.get('/api/v1/character', async (req, res, next) => {
+server.get('/api/v2/character', async (req, res, next) => {
   try {
     const token = process.env.LOTR_API_TOKEN
     console.log(token)
     const apiResponse = await request
       .get(`https://the-one-api.dev/v2/character`)
       .set('Authorization', `Bearer ${token}`)
-    res.json(apiResponse)
+    res.setHeader('Cache-Control', 'no-store')
+    res.json(apiResponse.body.docs)
   } catch (error) {
     next(error)
   }
