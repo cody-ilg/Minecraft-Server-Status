@@ -3,6 +3,7 @@ import { getServer } from '../apiClient.ts'
 import { ServerDetails, Players } from '../../models/welcome.ts'
 import '../../server/main.css'
 import { ShowServerDets } from './ServerDetails.tsx'
+import { RenderPlayerList } from './RenderPlayerList.tsx'
 
 function App() {
   const [serverDets, setServerDets] = useState<ServerDetails | null>()
@@ -22,10 +23,11 @@ function App() {
 
   return (
     <>
-      <pre>{JSON.stringify(serverDets, null, 2)}</pre>
       <body className="body">
         <ShowServerDets />
+        <RenderPlayerList />
       </body>
+      <pre>{JSON.stringify(serverDets, null, 2)}</pre>
     </>
   )
 }

@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Children } from 'react'
 import { getServer } from '../apiClient.ts'
 import { ServerDetails, Players } from '../../models/welcome.ts'
 import '../../server/main.css'
+import { RenderPlayerList } from './RenderPlayerList.tsx'
 
 export function ShowServerDets() {
   const [serverDets, setServerDets] = useState<ServerDetails | null>()
@@ -10,6 +11,9 @@ export function ShowServerDets() {
     async function fetchServerDets() {
       const serverData = await getServer()
       setServerDets(serverData)
+
+      // console.log(serverData.players.list[0].name, 'hellooo')
+      // const user = serverData.players.list[0].name
     }
 
     try {
@@ -18,37 +22,52 @@ export function ShowServerDets() {
       console.log(error)
     }
   }, [])
+
+  const bool1 = serverDets?.online
+  const userArr = serverDets?.players.list
+
+  console.log(userArr)
+
   return (
     <>
-      <div className="body">
+      <div>
         <h2>Server Stats!</h2>
 
-        <p>
-          <b> Ip address: </b>
-          {serverDets?.ip}:{serverDets?.port} <b>Online: </b>
-        </p>
-        <br></br>
-        <p>
-          <b>Message of the day: </b>
-          <p dangerouslySetInnerHTML={{ __html: serverDets?.motd.html }}></p>
-          <img src={serverDets?.icon} alt="Server Icon" />
-        </p>
+        <p></p>
 
+        <br></br>
+
+        <div className="motdBox">
+          <b className="mh">Message of the day: </b>
+          <br></br>
+
+          <div
+            className="motdText"
+            dangerouslySetInnerHTML={{ __html: serverDets?.motd.html }}
+          ></div>
+          <div>
+            <img className="iconBox" src={serverDets?.icon} alt="Server Icon" />
+          </div>
+        </div>
         <p>
-          <b> Version: </b>
-          {serverDets?.version} <b>Client: </b>
+          <b className="ph"> Ip address: </b>
+          {serverDets?.ip}:{serverDets?.port}{' '}
+          <b className="ph">Online: {serverDets?.online}</b>
+          <br></br>
+          <b className="ph"> Version: </b>
+          {serverDets?.version} <b className="ph">Client: </b>
           {serverDets?.software}
         </p>
         <p>
-          <b>Players Online:</b> {serverDets?.players.online} <b>Max: </b>
+          <b className="ph">Players Online:</b> {String(bool1)}{' '}
+          <b className="ph">Max: </b>
           {serverDets?.players.max}
         </p>
+        <div
+        // dangerouslySetInnerHTML={{ __html: serverDets?.players.list }}
+        ></div>
       </div>
-      {/* {arr.map(() => (
-        <div key={index}>
-          <div>Username: {serverDets?.players.list.name}</div>
-        </div>
-      ))} */}
+      {/* <pre>{JSON.stringify(serverDets, null, 2)}</pre> */}
     </>
   )
 }

@@ -4,7 +4,7 @@ export interface Welcome {
 export interface ServerDetails {
   ip: string
   port: string
-  online: boolean
+  online: object
   max: number
   icon: string
   version: number
@@ -13,7 +13,8 @@ export interface ServerDetails {
   players_online: number
   motd: string
   html: string
+  players_list: []
 }
 export interface Players {
-  players_list: string
+  players_list: object
 }
