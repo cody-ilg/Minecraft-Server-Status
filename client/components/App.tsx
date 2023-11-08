@@ -1,6 +1,6 @@
 //App
 import { useState, useEffect } from 'react'
-import Starwars from './Starwars.tsx'
+// import Starwars from './Starwars.tsx'
 import LordOfTheRings from './LordOfTheRings.tsx'
 
 function App() {
