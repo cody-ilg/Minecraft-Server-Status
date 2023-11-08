@@ -1,4 +1,4 @@
-// Models
+// Star Wars Models
 
 export interface Starwars {
   name: string

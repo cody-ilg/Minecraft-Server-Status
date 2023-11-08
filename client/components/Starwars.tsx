@@ -1,4 +1,4 @@
-//Component
+//Star Wars Component
 import { useEffect, useState } from 'react'
 
 import {
