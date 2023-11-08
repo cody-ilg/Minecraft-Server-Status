@@ -1,8 +1,7 @@
-import { useState, useEffect, Children } from 'react'
-import { getServer } from '../apiClient.ts'
-import { ServerDetails, Players } from '../../models/welcome.ts'
+import { useState, useEffect } from 'react'
+import { getServer } from '../apiClient.js'
+import { ServerDetails } from '../../models/serverData.js'
 import '../../server/main.css'
-import { RenderPlayerList } from './RenderPlayerList.tsx'
 
 export function ShowServerDets() {
   const [serverDets, setServerDets] = useState<ServerDetails | null>()

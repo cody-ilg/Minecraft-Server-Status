@@ -1,6 +1,6 @@
-import { useState, useEffect, Fragment } from 'react'
+import { useState, useEffect } from 'react'
 import { getServer } from '../apiClient.js'
-import { ServerDetails, Players } from '../../models/welcome.js'
+import { Players } from '../../models/serverData.js'
 import '../../server/main.css'
 
 export function RenderPlayerList() {
@@ -10,7 +10,6 @@ export function RenderPlayerList() {
     async function fetchServerDets() {
       const serverData = await getServer()
       setPlayerDets(serverData)
-      const userArr = playerDets?.players.list
     }
 
     try {
@@ -19,15 +18,6 @@ export function RenderPlayerList() {
       console.log(error)
     }
   }, [])
-
-  // Object.keys(playerDets?.players.list).map((key) => {
-  //   const player = playerDets?.players.list[key]
-  //   return (
-  //     <Fragment key={key}>
-  //       <p>{player.name}</p>
-  //     </Fragment>
-  //   )
-  // })
 
   return (
     <>
@@ -39,7 +29,7 @@ export function RenderPlayerList() {
           {playerDets?.players.max}
         </p>
         <p></p>
-        <p className='pAlt'>
+        <p className="pAlt">
           {playerDets?.players.list.map((playerName, i) => {
             return (
               <li key={i} className="">
