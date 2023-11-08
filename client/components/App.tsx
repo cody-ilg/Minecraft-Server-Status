@@ -1,21 +1,28 @@
 import { useState, useEffect } from 'react'
 
-import { getWelcome } from '../apiClient.ts'
+import { getWelcome, getBooks } from '../apiClient.ts'
+import { Books } from './Books.tsx'
+import { BooksIndividualChapters } from './BooksIndividualChapters.tsx'
 
 function App() {
-  const [welcomeStatement, setWelcomeStatement] = useState('')
+  // const [welcomeStatement, setWelcomeStatement] = useState('')
 
-  useEffect(() => {
-    getWelcome()
-      .then((res) => {
-        setWelcomeStatement(res.statement)
-      })
-      .catch((err) => {
-        console.error(err.message)
-      })
-  })
+  // useEffect(() => {
+  //   getWelcome()
+  //     .then((res) => {
+  //       setWelcomeStatement(res.statement)
+  //     })
+  //     .catch((err) => {
+  //       console.error(err.message)
+  //     })
+  // })
 
-  return <h1>{welcomeStatement}</h1>
+  return (
+    <>
+      <Books />
+      <BooksIndividualChapters />
+    </>
+  )
 }
 
 export default App
