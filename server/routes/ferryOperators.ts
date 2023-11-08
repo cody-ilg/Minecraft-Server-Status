@@ -1,29 +1,24 @@
 import express from 'express'
+import request from 'superagent'
 import { FerryOperator } from '../../models/ferrys.ts' 
+import * as dotenv from 'dotenv'
+dotenv.config()
+
+// to access the key variable
+
 
 const router = express.Router()
 
-// GET /api/v1/welcome/
+// GET /api/v1/ferryOperators/
 router.get('/', (req, res) => {
-  try {
-    // server.get('/api/v1/movies', async(req, res) => {
-    //     const token = process.env.MOVIEDB_API_TOKEN
-    //     console.log(token)
-    //     const response = await request
-    //     .get(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1`)
-    //     .set('Authorization', `Bearer ${token}`)
-    //     res.json(response.body.results)
-    //   })
-
-
-
-  } catch (err) {
-    if (err instanceof Error) {
-      res.status(500).send((err as Error).message)
-    } else {
-      res.status(500).send('Something went wrong')
-    }
-  }
+    const apiKey = process.env.NZTA_KEY_RN
+    console.log('this is working')
+    request
+    .get(`https://api.at.govt.nz/realtime/legacy/ferrypositions`)
+    .set('Ocp-Apim-Subscription-Key', `${apiKey}`)
+    .then((response) => {return res.json(response.body)})
+    .catch((err) => console.log('API error: ', err.message))
 })
+
 
 export default router

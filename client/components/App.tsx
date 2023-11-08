@@ -4,6 +4,10 @@ import { getWelcome } from '../apiClient.ts'
 
 function App() {
   const [welcomeStatement, setWelcomeStatement] = useState('')
+  const [ferryOperators, setFerryOperators] = useState()
+
+
+
 
   useEffect(() => {
     getWelcome()
