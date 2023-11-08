@@ -2,7 +2,7 @@ body {
   background: rgb(38, 46, 46);
   display: block;
   width: 100%;
-  display: flex;
+  /* display: flex; */
 }
 p {
   color: rgb(108, 194, 115);
@@ -12,20 +12,37 @@ p {
   margin-right: 2rem;
 }
 .ph {
-  color: rgb(152, 158, 153);
+  color: rgb(175, 187, 177);
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: 600;
 }
 
+.ps {
+  color: rgb(175, 187, 177);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+  font-size: x-small;
+}
+
+.pAlt {
+  
+    color: rgb(243, 150, 228);
+    font-family: monospace;
+    font-weight: 200;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  
+}
+
 .mh {
-  color: rgb(152, 158, 153);
+  color: rgb(190, 204, 193);
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: 600;
   text-align: center;
 }
 
 h2 {
-  color: rgb(142, 189, 156);
+  color: rgb(228, 156, 222);
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: 1000;
   background: rgb(55, 58, 55);
@@ -62,4 +79,12 @@ h2 {
   border: 10px;
   margin-left: 2rem;
   flex: 1;
+}
+
+.serverDets {
+  flex-direction: column;
+}
+
+.playerDets {
+  flex-direction: column;
 }

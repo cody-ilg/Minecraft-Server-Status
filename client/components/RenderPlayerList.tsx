@@ -11,7 +11,6 @@ export function RenderPlayerList() {
       const serverData = await getServer()
       setPlayerDets(serverData)
       const userArr = playerDets?.players.list
-      console.log(userArr)
     }
 
     try {
@@ -21,8 +20,8 @@ export function RenderPlayerList() {
     }
   }, [])
 
-  // Object.keys(playerDets?.players.list[0]).map((key) => {
-  //   const player = playerDets?.players.list[0][key]
+  // Object.keys(playerDets?.players.list).map((key) => {
+  //   const player = playerDets?.players.list[key]
   //   return (
   //     <Fragment key={key}>
   //       <p>{player.name}</p>
@@ -33,7 +32,24 @@ export function RenderPlayerList() {
   return (
     <>
       <div>
-        <p>testing</p>
+        <p>
+          <b className="ph">Players Online:</b>
+          {playerDets?.players.online}
+          <b className="ph">,</b> <b className="ph">Max: </b>
+          {playerDets?.players.max}
+        </p>
+        <p></p>
+        <p className='pAlt'>
+          {playerDets?.players.list.map((playerName, i) => {
+            return (
+              <li key={i} className="">
+                <b className="ps">NAME: </b>
+                {playerName.name} <b className="ps">UUID:</b>
+                {playerName.uuid}
+              </li>
+            )
+          })}
+        </p>
       </div>
     </>
   )

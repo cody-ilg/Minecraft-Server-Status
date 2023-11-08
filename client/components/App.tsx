@@ -24,10 +24,14 @@ function App() {
   return (
     <>
       <body className="body">
-        <ShowServerDets />
-        <RenderPlayerList />
+        <div className="serverDets">
+          <ShowServerDets />
+        </div>
+        <div className="playerDets">
+          <RenderPlayerList />
+        </div>
       </body>
-      <pre>{JSON.stringify(serverDets, null, 2)}</pre>
+      {/* <pre>{JSON.stringify(serverDets, null, 2)}</pre> */}
     </>
   )
 }

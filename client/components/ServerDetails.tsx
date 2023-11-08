@@ -24,19 +24,14 @@ export function ShowServerDets() {
   }, [])
 
   const bool1 = serverDets?.online
-  const userArr = serverDets?.players.list
 
-  console.log(userArr)
-
+  console.log(serverDets?.players.online, 'No. of players')
   return (
     <>
       <div>
         <h2>Server Stats!</h2>
-
         <p></p>
-
         <br></br>
-
         <div className="motdBox">
           <b className="mh">Message of the day: </b>
           <br></br>
@@ -51,18 +46,14 @@ export function ShowServerDets() {
         </div>
         <p>
           <b className="ph"> Ip address: </b>
-          {serverDets?.ip}:{serverDets?.port}{' '}
-          <b className="ph">Online: {serverDets?.online}</b>
+          {serverDets?.ip}:{serverDets?.port} <b className="ph">Online: </b>
+          {String(bool1)}
           <br></br>
           <b className="ph"> Version: </b>
           {serverDets?.version} <b className="ph">Client: </b>
           {serverDets?.software}
         </p>
-        <p>
-          <b className="ph">Players Online:</b> {String(bool1)}{' '}
-          <b className="ph">Max: </b>
-          {serverDets?.players.max}
-        </p>
+
         <div
         // dangerouslySetInnerHTML={{ __html: serverDets?.players.list }}
         ></div>
