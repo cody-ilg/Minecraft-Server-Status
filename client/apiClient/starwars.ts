@@ -2,15 +2,15 @@
 
 import request from 'superagent'
 
-const personURL = 'https://swapi.dev/api/people/5'
-const planetURL = 'https://swapi.dev/api/planets/2/'
+const personURL = 'https://swapi.dev/api/people/'
+const planetURL = 'https://swapi.dev/api/planets/'
 
-export async function getStarWarsPersonApi() {
+export async function getStarWarsPeopleApi() {
   const response = await request.get(personURL)
   return response.body
 }
 
-export async function getStarWarsPlanetApi() {
+export async function getStarWarsPlanetsApi() {
   const response = await request.get(planetURL)
   return response.body
 }

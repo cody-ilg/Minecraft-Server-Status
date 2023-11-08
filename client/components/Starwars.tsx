@@ -2,21 +2,21 @@
 import { useEffect, useState } from 'react'
 
 import {
-  getStarWarsPersonApi,
-  getStarWarsPlanetApi,
+  getStarWarsPeopleApi,
+  getStarWarsPlanetsApi,
 } from '../apiClient/starwars.ts'
 
 import type { Starwars } from '../../models/Starwars.ts'
 
 export default function Starwars() {
-  const [starWarsPerson, setStarWarsPerson] = useState<Starwars | null>()
-  const [starWarsPlanet, setStarWarsPlanet] = useState<Starwars | null>()
+  const [starWarsPeople, setStarWarsPeople] = useState([])
+  const [starWarsPlanets, setStarWarsPlanets] = useState([])
   useEffect(() => {
     async function fetchStarWars() {
-      const starWarsPersonData = await getStarWarsPersonApi()
-      const starWarsPlanetData = await getStarWarsPlanetApi()
-      setStarWarsPerson(starWarsPersonData)
-      setStarWarsPlanet(starWarsPlanetData)
+      const starWarsPeopleData = await getStarWarsPeopleApi()
+      const starWarsPlanetsData = await getStarWarsPlanetsApi()
+      setStarWarsPeople(starWarsPeopleData.results)
+      setStarWarsPlanets(starWarsPlanetsData.results)
     }
     try {
       fetchStarWars()
@@ -28,8 +28,19 @@ export default function Starwars() {
   return (
     <>
       <h1>Star Wars Characters</h1>
-      <h4>Name: {starWarsPerson?.name}</h4>
-      <h4>Home world: {starWarsPlanet?.name}</h4>
+      {starWarsPeople.map((person, index) => (
+        <div key={index}>
+          <h4>Name: {person.name}</h4>
+          <h4>Birth year: {person.birth_year}</h4>
+        </div>
+      ))}
+      <h1>Star Wars Planets</h1>
+      {starWarsPlanets.map((planet, index) => (
+        <div key={index}>
+          <h4>Name: {planet.name}</h4>
+          <h4>Planet terrain: {planet.terrain}</h4>
+        </div>
+      ))}
     </>
   )
 }
