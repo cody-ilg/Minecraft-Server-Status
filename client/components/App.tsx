@@ -1,12 +1,7 @@
 import Image from './Image.js'
 
 function App() {
-  return (
-    <>
-      <h1>Welcome!</h1>
-      <Image />
-    </>
-  )
+  return <>{Array(9).fill(<Image />)}</>
 }
 
 export default App

@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: calc(100vw / 3 - 1em);
+  height: calc(100vh / 3 - 1em);
+  margin: 0.25em;
+  padding: 0;
+}
