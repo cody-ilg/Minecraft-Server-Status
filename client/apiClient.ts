@@ -1,8 +1,7 @@
 import request from 'superagent'
-import * as Albums from '../models/Albums.ts'
 
 // *** EXAMPLE ***
-export async function getFolder() {
+export async function getAlbums() {
   const response = await request.get(
     `https://api.discogs.com/users/ljlinessmith/collection/folders/0/releases`
   )
