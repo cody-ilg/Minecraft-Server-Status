@@ -10,8 +10,19 @@ const __dirname = Path.dirname(__filename)
 
 const server = express()
 
+//server listening for incoming requests and sending back responses
+
+// Middleware:
+
+// server.use(express.json()): This middleware parses incoming JSON requests.
+// server.use(express.static(join(__dirname, './public'))):
+// This middleware serves static files from the public directory.
+
 server.use(express.json())
 server.use(express.static(join(__dirname, './public')))
+
+// This route is triggered when your frontend makes a GET request to /api/v2/character.
+// It fetches data from the LOTR API using superagent and sends the response back to the client
 
 server.get('/api/v2/character', async (req, res, next) => {
   try {
