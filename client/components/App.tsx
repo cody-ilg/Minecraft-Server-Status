@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 
 import { getWelcome, getPokemon } from '../apiClient.ts'
-import Pokemon from './Pokemon.tsx'
+import LOTRQuote from './LOTRQuote.js'
+import Pokemon from './Pokemon.js'
+import Starwars from './Starwars.js'
 
 function App() {
   const [welcomeStatement, setWelcomeStatement] = useState('')
@@ -15,12 +17,17 @@ function App() {
         console.error(err.message)
       })
   })
+  // console.log(process.env.LOTR_API_TOKEN)
+const serverURL = '/api/v1'
 
   return (
     <>
-  <h1>{welcomeStatement}</h1>
-  <Pokemon/>
-  </>
+    
+      <h1>{welcomeStatement}</h1>
+      <Pokemon/>
+      <Starwars />
+      <LOTRQuote />
+    </>
   )
 }
 

@@ -25,6 +25,8 @@ export default function Pokemon() {
       <h2>Pokémon </h2>
       {/* {<pre>{JSON.stringify(pokemon, null, 2)}</pre>} */}
       {pokemon?.name}<br/><br/>
+      
+      {console.log(pokemon)}
       <img src={pokemon?.sprites.front_shiny} alt={pokemon?.name} />
     </>
   )
