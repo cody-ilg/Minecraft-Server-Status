@@ -35,7 +35,8 @@ export default function CurrentWeather() {
 
   return (
     <div>
-      <h1>Current Weather</h1>
+      <h1 style={{ color: 'blue' }}>Weather API Section (with Auth)</h1>
+      <h2>Current Weather</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="city">Enter city name:</label>
         <input

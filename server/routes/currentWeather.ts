@@ -21,12 +21,13 @@ const APIKey = process.env.WEATHER_API_KEY
 //   }
 // })
 
-router.get('/', async (req, res) => {
-  const cityName = req.query.city
+router.get('/:cityName', async (req, res) => {
+  const cityName = req.params.cityName
   try {
     const currentWeather = await request.get(
       `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APIKey}`
     )
+    console.log(currentWeather)
     res.json(currentWeather.body)
   } catch (err) {
     if (err instanceof Error) {
