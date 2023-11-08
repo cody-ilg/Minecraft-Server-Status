@@ -1,0 +1,27 @@
+body {
+  font-family: 'Times New Roman', Times, serif;
+  background-color: burlywood;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.header {
+  color: rgb(16, 106, 141);
+  text-align: center;
+  font-size: 3rem;
+}
+
+.main-container {
+  text-align: center;
+}
+
+.event-header {
+  font-size: 2.5rem;
+}
+
+.data-text {
+  font-size: 1rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

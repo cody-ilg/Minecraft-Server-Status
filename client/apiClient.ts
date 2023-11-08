@@ -1,10 +1,11 @@
 import request from 'superagent'
-import { Welcome } from '../models/welcome.ts'
+import { RandomEvent } from '../models/RandomEvent.ts'
 
-const serverURL = '/api/v1'
+const serverURL = 'http://www.boredapi.com/api/activity/'
 
 // *** EXAMPLE ***
-export function getWelcome(): Promise<Welcome> {
-  return request.get(`${serverURL}/welcome`).then((response) => response.body)
+export async function getRandomEvent(): Promise<RandomEvent> {
+  const response = await request.get(serverURL)
+  return response.body
 }
 // ***   ***   ***
