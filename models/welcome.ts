@@ -1,3 +1,4 @@
 export interface Welcome {
-  statement: string
+  time: Date
+  temp: number
 }
