@@ -1,10 +1,10 @@
 import request from 'superagent'
-import { Welcome } from '../models/welcome.ts'
+import { Articles } from '../models/welcome.ts'
 
-const serverURL = '/api/v1'
+const serverURL = 'https://api.spaceflightnewsapi.net/v4/articles/'
 
-// *** EXAMPLE ***
-export function getWelcome(): Promise<Welcome> {
-  return request.get(`${serverURL}/welcome`).then((response) => response.body)
+export async function getRockets(): Promise<Articles> {
+  const response = await request.get(serverURL)
+  console.log(response.body)
+  return response.body
 }
-// ***   ***   ***
