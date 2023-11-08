@@ -14,3 +14,4 @@ export async function getPokemon(){
   console.log(response.body)
   return response.body
 }
+// https://raw.githubusercontent.com/PokeAPI/sprites/master/https:/raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/132.png
