@@ -67,7 +67,7 @@ Some possibilities are listed below if you want a place to start, otherwise find
 If you're not sure where to start, you can use one of the APIs listed below.
 
 <details>
-  <summary>Simple APIs (no API key required or CORS restrictions)</summary>
+  <summary>Simple APIapi/v1/disneys (no API key required or CORS restrictions)</summary>
 
 - https://www.boredapi.com: suggest a random activity
 - https://dog.ceo/dog-api: dog pictures
