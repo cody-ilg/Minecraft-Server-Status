@@ -9,6 +9,10 @@ export default function CurrentWeather() {
   //state to store the city input
   const [city, setCity] = useState('')
 
+  const kelvinToCelsius = (kelvin) => {
+    return (kelvin - 273.15).toFixed(2) // Converts Kelvin to Celsius and rounds to 2 decimal places
+  }
+
   const handleChange = async (event) => {
     setCity(event.target.value)
     console.log(city)
@@ -18,6 +22,10 @@ export default function CurrentWeather() {
     event.preventDefault()
     try {
       const weatherData = await getCurrentWeather(city, APIKey)
+      const updatedWeatherData = { ...weatherData } // Create a copy of the original object
+      updatedWeatherData.main.temp = kelvinToCelsius(
+        updatedWeatherData.main.temp
+      ) // Convert temperature to Celsius
       setWeather(weatherData)
       console.log(weatherData)
     } catch (error) {
@@ -44,7 +52,7 @@ export default function CurrentWeather() {
           <h2>
             Weather for {weather.name}, {weather.sys.country}
           </h2>
-          <p>Temperature: {weather.main.temp} &deg;K</p>
+          <p>Temperature: {weather.main.temp} &deg;C</p>
           <p>Humidity: {weather.main.humidity}%</p>
           <p>Weather: {weather.weather[0].description}</p>
         </div>

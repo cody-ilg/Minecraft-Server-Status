@@ -16,7 +16,7 @@ export async function getRandomActivity() {
 
 // export async function getCurrentWeather() {
 //   const response = await request.get(
-//     'http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APIKey}'
+//     'http://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${APIKey}'
 //   )
 //   return response.body
 // }
