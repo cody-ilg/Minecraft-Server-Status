@@ -3,6 +3,12 @@ import express from 'express'
 import * as Path from 'node:path'
 import * as URL from 'node:url'
 
+import * as dotenv from 'dotenv'
+dotenv.config()
+
+// to access the key variable
+const apiKey = process.env.NZTA_KEY_RN
+
 import welcome from './routes/welcome.ts'
 
 const __filename = URL.fileURLToPath(import.meta.url)
