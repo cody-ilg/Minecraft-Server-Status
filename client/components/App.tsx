@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-
 import { getServer } from '../apiClient.ts'
-import type { ServerDetails } from '../../models/welcome.ts'
+import { ServerDetails, Players } from '../../models/welcome.ts'
+import '../../server/main.css'
+import { ShowServerDets } from './ServerDetails.tsx'
 
 function App() {
   const [serverDets, setServerDets] = useState<ServerDetails | null>()
@@ -21,24 +22,12 @@ function App() {
 
   return (
     <>
-      <h2>Server Status </h2>
+      <pre>{JSON.stringify(serverDets, null, 2)}</pre>
+      <body className="body">
+        <ShowServerDets />
+      </body>
     </>
   )
 }
 
-// function App() {
-//   const [welcomeStatement, setWelcomeStatement] = useState('')
-
-//   useEffect(() => {
-//     getServer()
-//       .then((res) => {
-//         setWelcomeStatement(res.statement)
-//       })
-//       .catch((err) => {
-//         console.error(err.message)
-//       })
-//   })
-
-//   return <h1>{welcomeStatement}</h1>
-// }
 export default App
