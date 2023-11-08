@@ -1,6 +1,5 @@
-import { createRoot } from 'react-dom/client'
-import App from './components/App.tsx'
+import { render } from 'react-dom'
+import { clientRouter } from './router.tsx'
+import { Router } from 'react-router-dom'
 
-document.addEventListener('DOMContentLoaded', () => {
-  createRoot(document.getElementById('app') as HTMLElement).render(<App />)
-})
+render(<Router></Router>, node)

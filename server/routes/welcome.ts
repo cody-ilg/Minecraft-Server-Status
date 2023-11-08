@@ -1,10 +1,10 @@
 import express from 'express'
 import { Welcome } from '../../models/welcome.ts'
 
-const router = express.Router()
+const serverRouter = express.Router()
 
 // GET /api/v1/welcome/
-router.get('/', (req, res) => {
+serverRouter.get('/', (req, res) => {
   try {
     res.json({ statement: 'Welcome to external APIs!' } as Welcome)
   } catch (err) {
@@ -16,4 +16,4 @@ router.get('/', (req, res) => {
   }
 })
 
-export default router
+export default serverRouter
