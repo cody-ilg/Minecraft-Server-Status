@@ -9,7 +9,7 @@ dotenv.config()
 
 const router = express.Router()
 
-// GET /api/v1/ferryOperators/
+// GET /api/v1/ferryData/
 router.get('/', (req, res) => {
     const apiKey = process.env.NZTA_KEY_RN
     console.log('this is working')
@@ -19,6 +19,4 @@ router.get('/', (req, res) => {
     .then((response) => {return res.json(response.body)})
     .catch((err) => console.log('API error: ', err.message))
 })
-
-
 export default router
