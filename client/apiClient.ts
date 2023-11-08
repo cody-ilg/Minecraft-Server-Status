@@ -1,10 +1,11 @@
 import request from 'superagent'
-import { Welcome } from '../models/welcome.ts'
-
-const serverURL = '/api/v1'
+import * as Albums from '../models/Albums.ts'
 
 // *** EXAMPLE ***
-export function getWelcome(): Promise<Welcome> {
-  return request.get(`${serverURL}/welcome`).then((response) => response.body)
+export async function getFolder() {
+  const response = await request.get(
+    `https://api.discogs.com/users/ljlinessmith/collection/folders/0/releases`
+  )
+  return response.body
 }
 // ***   ***   ***
