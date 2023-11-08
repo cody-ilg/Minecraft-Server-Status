@@ -1,17 +1,24 @@
 import { useState, useEffect } from 'react'
-import { getWelcome } from '../apiClient.ts'
 import { initializeApp } from 'firebase/app'
-import {
-  getAuth,
-  connectAuthEmulator,
-  signInWithCustomToken,
-  GoogleAuthProvider,
-  signInWithPopup,
-} from 'firebase/auth'
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
+import { getWelcome } from '../apiClient.ts'
 
 function App() {
   const [welcomeStatement, setWelcomeStatement] = useState('')
+
   useEffect(() => {
+    getWelcome()
+      .then((res) => {
+        setWelcomeStatement(res.statement)
+      })
+      .catch((err) => {
+        console.error(err.message)
+      })
+  })
+
+  return <h1>{welcomeStatement}</h1>
+
+  function handleClick() {
     console.log('Should auth')
 
     const firebaseConfig = {
@@ -30,7 +37,6 @@ function App() {
     googleProvider.setCustomParameters({
       login_hint: 'user@example.com',
     })
-
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
@@ -46,6 +52,8 @@ function App() {
         // IdP data available using getAdditionalUserInfo(result)
       })
       .catch((error) => {
+        console.log('Failed to sign in: ' + error.message)
+
         // Handle Errors here.
         const errorCode = error.code
         const errorMessage = error.message
@@ -55,19 +63,8 @@ function App() {
         const credential = GoogleAuthProvider.credentialFromError(error)
         // ...
       })
-  }, [])
-
-  useEffect(() => {
-    getWelcome()
-      .then((res) => {
-        setWelcomeStatement(res.statement)
-      })
-      .catch((err) => {
-        console.error(err.message)
-      })
-  })
-
-  return <h1>{welcomeStatement}</h1>
+  }
+  return <button onClick={handleClick}>Sign In</button>
 }
 
 export default App
