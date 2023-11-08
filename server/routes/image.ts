@@ -13,9 +13,9 @@ router.get('/', async (req, res) => {
       'Computer Programmer Mad Bug',
     ]
 
-    let query = queries[Math.floor(Math.random() * queries.length)]
+    let query = queries[Math.floor(Math.random() * queries.length)] as string
 
-    if (req.query.query) query = req.query.query
+    if (req.query.query) query = req.query.query as string
 
     const url =
       'https://tenor.googleapis.com/v2/search?q=' +

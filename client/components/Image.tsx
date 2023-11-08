@@ -1,7 +1,13 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState, useEffect } from 'react'
-import { getImage } from '../apiClient.ts'
+import { getImage } from '../apiClient.js'
 
-function Image(props) {
+interface Props {
+  query: string
+}
+
+function Image(props: Props) {
   const { query } = props
 
   const placeholder = {
@@ -11,7 +17,7 @@ function Image(props) {
 
   const [image, setImage] = useState(placeholder)
 
-  async function fetchImage(event) {
+  async function fetchImage(event = null) {
     if (event || query) setImage(placeholder)
 
     const image = await getImage(query)

@@ -7,9 +7,9 @@ function App() {
 
   console.log(query, gifs)
 
-  function handleSubmit(event) {
+  function handleSubmit(event: { preventDefault: () => void }) {
     event.preventDefault()
-    setQuery(document.getElementById('query').value)
+    setQuery(document.getElementById('query')?.value)
   }
 
   return (
