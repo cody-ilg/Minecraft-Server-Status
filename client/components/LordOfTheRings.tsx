@@ -5,7 +5,7 @@ import { getAllCharactersApi } from '../apiClient/lotr.ts'
 
 export default function LordOfTheRings() {
   console.log('LOTR component is being rendered')
-  const [characters, setCharacters] = useState<any[]>([])
+  const [characters, setCharacters] = useState<LOTRCharacters[]>([])
 
   useEffect(() => {
     async function fetchCharacters() {
