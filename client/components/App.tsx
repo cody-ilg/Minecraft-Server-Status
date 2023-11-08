@@ -1,9 +1,9 @@
-import { getAlbums } from '../apiClient.ts'
+import Albums from './AlbumList.tsx'
 
 function App() {
   return (
     <div>
-      <getAlbums />
+      <Albums />
     </div>
   )
 }

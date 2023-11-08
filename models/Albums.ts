@@ -1,12 +1,4 @@
-export interface Release {
-  id: number
-  instanceID: number
-  dateAdded: Date
-  rating: number
-  basicInformation: BasicInformation
-}
-
-export interface BasicInformation {
+export interface Album {
   id: number
   masterID: number
   masterURL: null | string
@@ -20,6 +12,14 @@ export interface BasicInformation {
   labels: Label[]
   genres: string[]
   styles: string[]
+}
+
+export interface Release {
+  id: number
+  instanceID: number
+  dateAdded: Date
+  rating: number
+  basicInformation: Album
 }
 
 export interface Artist {

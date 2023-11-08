@@ -1,10 +1,9 @@
 import request from 'superagent'
+import { Album } from '../models/Albums.ts'
 
-// *** EXAMPLE ***
-export async function getAlbums() {
+export async function getAlbums(): Promise<Album[]> {
   const response = await request.get(
     `https://api.discogs.com/users/ljlinessmith/collection/folders/0/releases`
   )
   return response.body
 }
-// ***   ***   ***
