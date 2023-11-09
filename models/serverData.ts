@@ -16,5 +16,7 @@ export interface ServerDetails {
   players_list: []
 }
 export interface Players {
-  players_list: object
+  players_list: []
+  list: []
+  name: string
 }

@@ -23,7 +23,7 @@ export function RenderPlayerList() {
     <>
       <div>
         <p>
-          <b className="ph">Players Online:</b>
+          <b className="ph">Players Online: </b>
           {playerDets?.players.online}
           <b className="ph">,</b> <b className="ph">Max: </b>
           {playerDets?.players.max}
@@ -33,8 +33,8 @@ export function RenderPlayerList() {
           {playerDets?.players.list.map((playerName, i) => {
             return (
               <li key={i} className="">
-                <b className="ps">NAME: </b>
-                {playerName.name} <b className="ps">UUID:</b>
+                <b className="ps">name: </b>
+                {playerName.name} <b className="ps">id:</b>
                 {playerName.uuid}
               </li>
             )
