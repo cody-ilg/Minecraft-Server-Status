@@ -1,25 +1,29 @@
 import request from 'superagent'
-// import { FerryOperators } from '../models/ferrys.ts'
-const ferryDataURL = '/api/v1/ferryData/'
+// import t operatorsArr } from '../models/ferrys.ts'
+const serverApiURL = '/api/v1/ferryData/'
 
 
 export async function getFerryOperators () {
   // this code grabs it from the backend and wraps it in a HTTP request format
-  const ferryDataRequest = await request
-        .get(ferryDataURL)
-  //unwraps it from the http request body. We now have an array of objects. 
-  const ferryData = ferryDataRequest.body
-  let ferryOperators = ferryData.map((ferry)=>{
+  const httpRequestObject = await request
+        .get(serverApiURL)
+
+  //unwraps the http request, we now have an array of our data
+  const ferryArr = httpRequestObject.body
+  
+  //accessing the actual info we want (operators)
+  let operatorsArr = ferryArr.map((ferry)=>{
     return ferry.operator
   })
-        return ferryOperators
+
+        return operatorsArr
 }
 
 export async function getFerryNames () {
-  const ferryDataRequest = await request
-        .get(ferryDataURL)
-  const ferryData = ferryDataRequest.body
-  let ferryNames = ferryData.map((ferry)=>{
+  const httpRequestObject = await request
+        .get(serverApiURL)
+  const ferryArr = httpRequestObject.body
+  let ferryNames = ferryArr.map((ferry)=>{
     let name = ""
     if(ferry.vessel===""){
       name = "UNNAMED BOAT"
@@ -28,5 +32,6 @@ export async function getFerryNames () {
     }
     return name
   })
+
         return ferryNames
 }

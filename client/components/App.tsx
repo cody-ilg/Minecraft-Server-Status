@@ -4,16 +4,16 @@ import { Operator } from '../../models/ferrys.ts'
 
 
 function App() {
-  const [ferryOperators, setFerryOperators] = useState()
-  const [ferryNames, setFerryNames] = useState()
-  // getFerryOperators()
+  const [operators, setOperators] = useState()
+  const [names, setNames] = useState()
+  // getoperators()
   
   useEffect(()=>{
     async function fetchFerryData(){
-      const ferryOperatorList = await getFerryOperators()
-      const ferryNameList = await getFerryNames()
-      setFerryOperators(ferryOperatorList)
-      setFerryNames(ferryNameList)
+      const retrievedOperatorList = await getFerryOperators()
+      const retrievedNameList = await getFerryNames()
+      setOperators(retrievedOperatorList)
+      setNames(retrievedNameList)
     }
     fetchFerryData()
   })
@@ -23,12 +23,13 @@ function App() {
   <>
   <h2>List of Current Ferry Operators</h2>
   <ul>
-
+{/* <li>{operators[0]}</li> */}
+{/* <li>{names[0]}</li> */}
     {
-    ferryOperators.map((operator,i)=>{
+    operators.map((operator,i)=>{
       return (
         <>
-        <li>{`${ferryNames[i]} - ${operator}`}</li>
+        <li>{`${names[i]} - ${operator}`}</li>
         </>
       )
     })
