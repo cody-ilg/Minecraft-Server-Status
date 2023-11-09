@@ -1,5 +1,5 @@
 import express from 'express'
-import { ServerDetails, Welcome } from '../../models/welcome.ts'
+import { ServerDetails } from '../../models/serverData.js'
 
 const router = express.Router()
 

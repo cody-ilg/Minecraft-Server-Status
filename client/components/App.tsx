@@ -2,6 +2,7 @@ import '../../server/main.css'
 import { ShowServerDets } from './ServerDetails.tsx'
 import { RenderPlayerList } from './RenderPlayerList.tsx'
 
+
 function App() {
   return (
     <>
@@ -13,7 +14,7 @@ function App() {
           <RenderPlayerList />
         </div>
       </body>
-      {/* <pre>{JSON.stringify(serverDets, null, 2)}</pre> */}
+     
     </>
   )
 }

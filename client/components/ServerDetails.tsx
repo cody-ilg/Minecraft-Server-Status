@@ -22,13 +22,13 @@ export function ShowServerDets() {
     }
   }, [])
 
-  const bool1 = serverDets?.online
+  const onlineStatus = serverDets?.online
 
   console.log(serverDets?.players.online, 'No. of players')
   return (
     <>
       <div>
-        <h2>Server Stats!</h2>
+        <h2>Minecraft Server Status</h2>
         <p></p>
         <br></br>
         <div className="motdBox">
@@ -46,16 +46,14 @@ export function ShowServerDets() {
         <p>
           <b className="ph"> Ip address: </b>
           {serverDets?.ip}:{serverDets?.port} <b className="ph">Online: </b>
-          {String(bool1)}
+          {String(onlineStatus)}
           <br></br>
           <b className="ph"> Version: </b>
           {serverDets?.version} <b className="ph">Client: </b>
           {serverDets?.software}
         </p>
 
-        <div
-        // dangerouslySetInnerHTML={{ __html: serverDets?.players.list }}
-        ></div>
+        <div></div>
       </div>
       {/* <pre>{JSON.stringify(serverDets, null, 2)}</pre> */}
     </>

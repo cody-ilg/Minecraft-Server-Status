@@ -24,19 +24,21 @@ export function RenderPlayerList() {
       <div>
         <p>
           <b className="ph">Players Online: </b>
-          {playerDets?.players.online}
-          <b className="ph">,</b> <b className="ph">Max: </b>
-          {playerDets?.players.max}
+          {playerDets?.players.online}/{playerDets?.players.max}
         </p>
         <p></p>
         <p className="pAlt">
           {playerDets?.players.list.map((playerName, i) => {
             return (
-              <li key={i} className="">
-                <b className="ps">name: </b>
-                {playerName.name} <b className="ps">id:</b>
-                {playerName.uuid}
-              </li>
+              <tr key={i} className="">
+                <td>
+                  <b className="ps">name: </b> {playerName.name}{' '}
+                </td>
+                <td>
+                  {' '}
+                  <b className="ps">id:</b> {playerName.uuid}
+                </td>
+              </tr>
             )
           })}
         </p>
