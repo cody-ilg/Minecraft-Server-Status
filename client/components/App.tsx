@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-import { getWelcome } from '../apiClient.ts'
+// import { getWelcome } from '../apiClient.ts'
 
 function App() {
   const [welcomeStatement, setWelcomeStatement] = useState('')
@@ -8,18 +8,11 @@ function App() {
 
 
 
-
-  useEffect(() => {
-    getWelcome()
-      .then((res) => {
-        setWelcomeStatement(res.statement)
-      })
-      .catch((err) => {
-        console.error(err.message)
-      })
-  })
-
-  return <h1>{welcomeStatement}</h1>
+  return (
+  <>
+  <h2>Testing this page works</h2>
+  </>
+  )
 }
 
 export default App
