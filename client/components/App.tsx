@@ -1,16 +1,42 @@
 import { useState, useEffect } from 'react'
-import { getFerryOperators } from '../apiClient.ts'
+import { getFerryOperators, getFerryNames } from '../apiClient.ts'
+import { Operator } from '../../models/ferrys.ts'
 
 
 function App() {
-  const [welcomeStatement, setWelcomeStatement] = useState('')
   const [ferryOperators, setFerryOperators] = useState()
-  getFerryOperators()
-  console.log("hey")
+  const [ferryNames, setFerryNames] = useState()
+  // getFerryOperators()
+  
+  useEffect(()=>{
+    async function fetchFerryData(){
+      const ferryOperatorList = await getFerryOperators()
+      const ferryNameList = await getFerryNames()
+      setFerryOperators(ferryOperatorList)
+      setFerryNames(ferryNameList)
+    }
+    fetchFerryData()
+  })
+ 
 
   return (
   <>
-  <h2>Testing this page works</h2>
+  <h2>List of Current Ferry Operators</h2>
+  <ul>
+
+    {
+    ferryOperators.map((operator,i)=>{
+      return (
+        <>
+        <li>{`${ferryNames[i]} - ${operator}`}</li>
+        </>
+      )
+    })
+    }
+
+  </ul>
+
+  <button>Refresh</button>
   </>
   )
 }

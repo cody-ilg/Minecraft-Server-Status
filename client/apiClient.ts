@@ -12,6 +12,21 @@ export async function getFerryOperators () {
   let ferryOperators = ferryData.map((ferry)=>{
     return ferry.operator
   })
-  console.log(ferryOperators)
         return ferryOperators
+}
+
+export async function getFerryNames () {
+  const ferryDataRequest = await request
+        .get(ferryDataURL)
+  const ferryData = ferryDataRequest.body
+  let ferryNames = ferryData.map((ferry)=>{
+    let name = ""
+    if(ferry.vessel===""){
+      name = "UNNAMED BOAT"
+    }else{
+      name = ferry.vessel
+    }
+    return name
+  })
+        return ferryNames
 }
