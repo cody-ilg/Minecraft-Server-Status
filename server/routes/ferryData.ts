@@ -9,14 +9,14 @@ dotenv.config()
 
 const router = express.Router()
 
-// GET /api/v1/ferryData/
+// GET http://localhost:5173//api/v1/ferryData/
 router.get('/', (req, res) => {
     const apiKey = process.env.NZTA_KEY_RN
     console.log('this is working')
     request
     .get(`https://api.at.govt.nz/realtime/legacy/ferrypositions`)
     .set('Ocp-Apim-Subscription-Key', `${apiKey}`)
-    .then((response) => {return res.json(response.body)})
+    .then((response) => {return res.json(response.body.response)})
     .catch((err) => console.log('API error: ', err.message))
 })
 export default router

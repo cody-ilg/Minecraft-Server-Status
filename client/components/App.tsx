@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
+import { getFerryOperators } from '../apiClient.ts'
 
-// import { getWelcome } from '../apiClient.ts'
 
 function App() {
   const [welcomeStatement, setWelcomeStatement] = useState('')
   const [ferryOperators, setFerryOperators] = useState()
-
-
+  getFerryOperators()
+  console.log("hey")
 
   return (
   <>
