@@ -26,7 +26,7 @@ export async function getFerryNames () {
   let ferryNames = ferryArr.map((ferry)=>{
     let name = ""
     if(ferry.vessel===""){
-      name = "UNNAMED BOAT"
+      name = "no name"
     }else{
       name = ferry.vessel
     }
@@ -34,4 +34,17 @@ export async function getFerryNames () {
   })
 
         return ferryNames
+}
+
+
+export async function getFerryTime () {
+  const httpRequestObject = await request
+        .get(serverApiURL)
+  const ferryArr = httpRequestObject.body
+  let ferryTime = ferryArr.map((ferry)=>{
+    const time = ferry.timestamp.split("T1")[1].split(".")[0]
+    return time
+  })
+    // console.log(ferryTime)
+        return ferryTime
 }
