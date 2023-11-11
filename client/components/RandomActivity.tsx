@@ -17,7 +17,7 @@ export default function RandomActivity() {
   //     setRActivity(rActivityData)
   //   }
   //   fetchRandomActivity()
-  // }, [setRActivity])
+  // }, [setRActivity])(())
 
   return (
     <>
