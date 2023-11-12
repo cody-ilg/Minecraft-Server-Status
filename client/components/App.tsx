@@ -1,21 +1,22 @@
 import { useState, useEffect } from 'react'
 
-import { getWelcome } from '../apiClient.ts'
+import { getMarvel } from '../apiClient.ts'
+import { Data, Marvel, Result } from '../../models/welcome.ts'
 
 function App() {
-  const [welcomeStatement, setWelcomeStatement] = useState('')
+  const [marvel, setMarvel] = useState([] as Marvel[])
 
   useEffect(() => {
-    getWelcome()
-      .then((res) => {
-        setWelcomeStatement(res.statement)
-      })
-      .catch((err) => {
-        console.error(err.message)
-      })
-  })
-
-  return <h1>{welcomeStatement}</h1>
+    async function fetchMarvelAPI(){
+      const response = await getMarvel()
+      setMarvel(response.data.results)
+      
+     
+    }
+    fetchMarvelAPI()
+  },[])
+  console.log("hoy",marvel)
+  return (<><ul>{marvel.map(data=><li key = {data.id}>{data.name}</li>)}</ul></>)
 }
 
 export default App
