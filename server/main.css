@@ -25,14 +25,12 @@ p {
 }
 
 .pAlt {
-  
-    color: rgb(243, 150, 228);
-    font-family: monospace;
-    font-weight: 200;
-    font-size: small;
-    margin-left: 2rem;
-    margin-right: 2rem;
-  
+  color: rgb(243, 150, 228);
+  font-family: monospace;
+  font-weight: 200;
+  font-size: small;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 .mh {
@@ -51,10 +49,10 @@ h2 {
   padding-bottom: 5px;
   border: 2px solid;
   border-radius: 15px;
-  border-color:rgb(100, 121, 100);
+  border-color: rgb(100, 121, 100);
   padding: 2px;
   background: rgb(21, 24, 20);
-  
+
   margin-left: 4rem;
   margin-right: 4rem;
   text-align: center;
@@ -66,7 +64,7 @@ h2 {
   padding: 10px;
   border: 2px solid;
   border-radius: 15px;
-  border-color:rgb(100, 121, 100);
+  border-color: rgb(100, 121, 100);
   border-radius: 15px;
   margin-left: 2rem;
   margin-right: 2rem;
@@ -96,14 +94,12 @@ h2 {
 
 tr {
   border: 3px solid;
-  
 }
 
 td {
   border: 1px solid;
-  border-radius: 1px;
-  border-color:rgb(113, 119, 113);
+  border-radius: 3px;
+  border-color: rgb(113, 119, 113);
   padding: 2px;
   background: rgb(39, 43, 37);
-  
 }
