@@ -22,11 +22,26 @@ export default function Events() {
     fetchRandomEvent()
   }
 
+  const activity = randomEvent?.activity
+  const type = randomEvent?.type
+  const participants = randomEvent?.participants
+
   return (
     <>
       <div className="main-container">
         <h1 className="event-header">Random Events</h1>
-        <pre className="data-text">{JSON.stringify(randomEvent, null, 2)}</pre>
+        {/* <pre className="data-text">{JSON.stringify(randomEvent, null, 2)}</pre> */}
+        <ul className="list">
+          <li>
+            <h2>Activity:</h2> {activity}
+          </li>
+          <li>
+            <h2>Activity Type:</h2> {type}
+          </li>
+          <li>
+            <h2># of Participants:</h2> {participants}
+          </li>
+        </ul>
         <button onClick={handleClick} className="refresh" type="button">
           Find a new event
         </button>

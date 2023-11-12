@@ -1,7 +1,7 @@
 export interface RandomEvent {
   activity: string
   accessibility: number
-  type: string[]
+  type: string
   participants: number
   price: number
   link: string
