@@ -21,7 +21,7 @@ export async function getRandomActivity() {
 //   return response.body
 // }
 
-export async function getCurrentWeather(cityName: string, APIKey: string) {
+export async function getCurrentWeather(cityName: string) {
   const response = await request.get('/api/v1/weather/' + cityName)
   return response.body
 }

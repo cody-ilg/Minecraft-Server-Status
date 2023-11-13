@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react'
 import { getCurrentWeather } from '../apiClient.ts'
-
-// import { CWeather } from '../../models/currentWeather.ts'
-const APIKey = 'a02d2ac517fb496a844af3ce53a6b86c'
+import { type CWeather } from '../../models/currentWeather.ts'
 
 export default function CurrentWeather() {
-  const [weather, setWeather] = useState(null)
+  const [weather, setWeather] = useState<CWeather | null>(null)
   //state to store the city input
   const [city, setCity] = useState('')
 
@@ -21,7 +19,7 @@ export default function CurrentWeather() {
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
-      const weatherData = await getCurrentWeather(city, APIKey)
+      const weatherData = await getCurrentWeather(city)
       const updatedWeatherData = { ...weatherData } // Create a copy of the original object
       updatedWeatherData.main.temp = kelvinToCelsius(
         updatedWeatherData.main.temp
