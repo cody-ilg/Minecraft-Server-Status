@@ -54,6 +54,10 @@ export default function CurrentWeather() {
           <p>Temperature: {weather.main.temp} &deg;C</p>
           <p>Humidity: {weather.main.humidity}%</p>
           <p>Weather: {weather.weather[0].description}</p>
+          <img
+            src={`https://openweathermap.org/img/w/${weather.weather[0].icon}.png`}
+            alt="weather-icon"
+          />
         </div>
       )}
     </div>

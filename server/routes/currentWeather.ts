@@ -12,7 +12,7 @@ router.get('/:cityName', async (req, res) => {
     const currentWeather = await request.get(
       `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APIKey}`
     )
-    console.log(currentWeather)
+    // console.log(currentWeather)
     res.json(currentWeather.body)
   } catch (err) {
     if (err instanceof Error) {
