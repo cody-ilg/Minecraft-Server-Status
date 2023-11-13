@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 
 import { getWelcome } from '../apiClient.ts'
 
+import GetPokemon from './Pokemon.tsx'
+
 function App() {
   const [welcomeStatement, setWelcomeStatement] = useState('')
 
@@ -15,7 +17,12 @@ function App() {
       })
   })
 
-  return <h1>{welcomeStatement}</h1>
+  return (
+    <>
+      <h1>{welcomeStatement}</h1>
+      <GetPokemon />
+    </>
+  )
 }
 
 export default App
