@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Album } from '../../models/Albums.ts'
 import { getAlbums } from '../apiClient.ts'
 import { getAlbums2 } from '../apiClient.ts'
+import { Link } from 'react-router-dom'
 
 export default function Albums() {
   const [albums, setAlbum] = useState([] as Album[])
@@ -34,6 +35,7 @@ export default function Albums() {
       {albums.map((album) => (
         <li key={album.basic_information.id}>
           {album.basic_information.title}
+          {/* <Link to={}>{album.basic_information.title}</Link> */}
         </li>
       ))}
       {albums2.map((album2) => (
