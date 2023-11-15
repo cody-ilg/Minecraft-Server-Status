@@ -8,8 +8,8 @@ export function RenderPlayerList() {
 
   useEffect(() => {
     async function fetchServerDets() {
-      const serverData = await getServer()
-      setPlayerDets(serverData)
+      const serverDets = await getServer()
+      setPlayerDets(serverDets)
     }
 
     try {
@@ -21,28 +21,26 @@ export function RenderPlayerList() {
 
   return (
     <>
-      <div>
-        <p>
-          <b className="ph">Players Online: </b>
-          {playerDets?.players.online}/{playerDets?.players.max}
-        </p>
-        <p></p>
-        <p className="pAlt">
-          {playerDets?.players.list.map((playerName, i) => {
-            return (
-              <tr key={i} className="">
-                <td>
-                  <b className="ps">name: </b> {playerName.name}{' '}
-                </td>
-                <td>
-                  {' '}
-                  <b className="ps">id:</b> {playerName.uuid}
-                </td>
-              </tr>
-            )
-          })}
-        </p>
-      </div>
+      <p>
+        <b className="ph">Players Online: </b>
+        {playerDets?.players.online}/{playerDets?.players.max}
+      </p>
+
+      <tbody className="pAlt">
+        {playerDets?.players.list.map((playerName, i) => {
+          return (
+            <tr key={i} className="">
+              <td>
+                <b className="ps">name: </b> {playerName.name}{' '}
+              </td>
+              <td>
+                {' '}
+                <b className="ps">id:</b> {playerName.uuid}
+              </td>
+            </tr>
+          )
+        })}
+      </tbody>
     </>
   )
 }

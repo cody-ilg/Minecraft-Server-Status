@@ -10,13 +10,14 @@ export interface ServerDetails {
   version: number
   software: string
   players: number
-  players_online: number
   motd: string
   html: string
   players_list: []
 }
 export interface Players {
-  players_list: []
+  players: object
   list: []
   name: string
+  online: number
+  max: number
 }

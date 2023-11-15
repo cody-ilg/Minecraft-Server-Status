@@ -1,7 +1,7 @@
 import '../../server/main.css'
 import { ShowServerDets } from './ServerDetails.tsx'
 import { RenderPlayerList } from './RenderPlayerList.tsx'
-import { ShowRes } from './ShowRes.tsx'
+// import { ShowRes } from './ShowRes.tsx'
 
 function App() {
   return (
@@ -12,9 +12,6 @@ function App() {
         </div>
         <div className="playerDets">
           <RenderPlayerList />
-        </div>
-        <div>
-          <ShowRes></ShowRes>
         </div>
       </body>
     </>

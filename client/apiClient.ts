@@ -3,10 +3,7 @@ import { ServerDetails } from '../models/serverData.js'
 
 const serverURL = '/api/v1'
 
-// *** EXAMPLE ***
-// export function getWelcome(): Promise<Welcome> {
-//   return request.get(`${serverURL}/welcome`).then((response) => response.body)
-// }
+
 
 export async function getServer(): Promise<ServerDetails> {
   const response = await request.get(
