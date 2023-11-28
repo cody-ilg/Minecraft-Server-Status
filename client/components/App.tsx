@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { getFerryOperators, getFerryNames, getFerryTime } from '../apiClient.ts'
 import { Operator } from '../../models/ferrys.ts'
+import { getFerryData } from '../apiClient.js'
 
 
 function App() {
@@ -16,13 +17,10 @@ function App() {
   useEffect(()=>{
     async function fetchFerryData(){
       try{
-        const retrievedOperatorList = await getFerryOperators()
-        const retrievedNameList = await getFerryNames()
-        const retrievedTimes = await getFerryTime()
-
-        setOperators(retrievedOperatorList)
-        setNames(retrievedNameList)
-        setTime(retrievedTimes)
+        const data= await getFerryData()
+        setOperators(data.ferryOperatorsArr)
+        setNames(data.ferryNamesArr)
+        setTime(data.ferryTimeArr)
       }catch(error){
       console.error("error running apiClient Functions")
       } 
