@@ -25,6 +25,7 @@ export function ShowServerDets() {
   const onlineStatus = serverDets?.online
 
   console.log(serverDets?.players.online, 'No. of players')
+  console.log(JSON.stringify(serverDets, null, 2))
   return (
     <>
       <div>

@@ -5,16 +5,14 @@ import { RenderPlayerList } from './RenderPlayerList.tsx'
 
 function App() {
   return (
-    <>
-      <body className="body">
-        <div className="serverDets">
-          <ShowServerDets />
-        </div>
-        <div className="playerDets">
-          <RenderPlayerList />
-        </div>
-      </body>
-    </>
+    <body className="body">
+      <div className="serverDets">
+        <ShowServerDets />
+      </div>
+      <div className="playerDets">
+        <RenderPlayerList />
+      </div>
+    </body>
   )
 }
 
